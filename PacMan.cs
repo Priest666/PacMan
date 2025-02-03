@@ -14,7 +14,10 @@ namespace PacMan
     {
         bool moveLeft, moveRight, moveUp, moveDown;
         int speed = 6;
-        int score;
+        int redSp = 6;
+        int blueSp = 6;
+        int pinkSp = 6;
+        int score = 0;
         int health = 3;
 
         int pacTop;
@@ -150,21 +153,49 @@ namespace PacMan
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-
-            
             LbScore.Text = "Score: " + score;
             // Save previous positions
             int pacPreviousLeft = pacman.Left;
             int pacPreviousTop = pacman.Top;
 
-            int ghPreviousLeft = ghBlue.Left;
-            int ghPreviousTop = ghBlue.Top;
+            ghBlue.Left += blueSp;
+            ghRed.Left += redSp;
+            ghPink.Left -= pinkSp;
 
-            ghBlue.Left += speed;
+
+            if (ghPink.Bounds.IntersectsWith(pictureBox12.Bounds))
+            {
+                pinkSp = -pinkSp;
+                ghPink.Image = Properties.Resources.pink_gh_right;
+            }
+
+            if (ghPink.Bounds.IntersectsWith(pictureBox21.Bounds))
+            {
+                pinkSp = -pinkSp;
+                ghPink.Image = Properties.Resources.pink_gh_left;
+            }
+
 
             if (ghBlue.Bounds.IntersectsWith(pictureBox19.Bounds))
             {
-                ghBlue.Left -= speed;
+                blueSp = -blueSp;
+                ghBlue.Image = Properties.Resources.blue_gh_left;
+            }
+
+            if (ghBlue.Bounds.IntersectsWith(pictureBox16.Bounds))
+            {
+                blueSp = -blueSp;
+                ghBlue.Image = Properties.Resources.blue_gh_right;
+            }
+
+            if (ghRed.Bounds.IntersectsWith(pictureBox19.Bounds))
+            {
+                redSp = -redSp;
+            }
+
+            if (ghRed.Bounds.IntersectsWith(pictureBox16.Bounds))
+            {
+                redSp = -redSp;
             }
 
             if (moveLeft == true)
@@ -200,6 +231,7 @@ namespace PacMan
                 {
                     if ((string)c.Tag == "wall") // Collision with walls
                     {
+
                         if (pacman.Bounds.IntersectsWith(c.Bounds))
                         {
                             // If a collision occurs, restore position based on movement
@@ -252,6 +284,7 @@ namespace PacMan
                             if (health == 0)
                             {
                                 Hp3.Visible = false;
+                                MessageBox.Show($"You died your score was {score}");
                                 RestartGame();
                             }
                         }
@@ -261,6 +294,7 @@ namespace PacMan
 
             if (score == 87)
             {
+                MessageBox.Show("Congrats you won!!");
                 RestartGame();
             }
         }
@@ -277,11 +311,13 @@ namespace PacMan
             {
                 if (c is PictureBox)
                 {
-                    if ((string)c.Tag == "coin")
+                    if ((string)c.Tag == "coin" || (string)c.Tag == "health")
                     {
                         c.Visible = true;
-                    }
+                    }                   
                 }
+
+
             }
         }
     }

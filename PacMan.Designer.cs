@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.LbScore = new System.Windows.Forms.Label();
+            this.ghPink = new System.Windows.Forms.PictureBox();
+            this.ghRed = new System.Windows.Forms.PictureBox();
+            this.Hp2 = new System.Windows.Forms.PictureBox();
+            this.Hp3 = new System.Windows.Forms.PictureBox();
             this.Hp1 = new System.Windows.Forms.PictureBox();
             this.ghBlue = new System.Windows.Forms.PictureBox();
             this.pictureBox127 = new System.Windows.Forms.PictureBox();
@@ -162,8 +166,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pacman = new System.Windows.Forms.PictureBox();
-            this.Hp3 = new System.Windows.Forms.PictureBox();
-            this.Hp2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ghPink)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ghRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hp2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hp3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Hp1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ghBlue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox127)).BeginInit();
@@ -295,8 +301,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hp3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hp2)).BeginInit();
             this.SuspendLayout();
             // 
             // GameTimer
@@ -314,9 +318,57 @@
             this.LbScore.Location = new System.Drawing.Point(-5, 0);
             this.LbScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LbScore.Name = "LbScore";
-            this.LbScore.Size = new System.Drawing.Size(115, 31);
+            this.LbScore.Size = new System.Drawing.Size(167, 31);
             this.LbScore.TabIndex = 1;
-            this.LbScore.Text = "Score: 0";
+            this.LbScore.Text = "Highscore: 0";
+            // 
+            // ghPink
+            // 
+            this.ghPink.Image = global::PacMan.Properties.Resources.pink_gh_left;
+            this.ghPink.Location = new System.Drawing.Point(992, 669);
+            this.ghPink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ghPink.Name = "ghPink";
+            this.ghPink.Size = new System.Drawing.Size(30, 30);
+            this.ghPink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ghPink.TabIndex = 143;
+            this.ghPink.TabStop = false;
+            this.ghPink.Tag = "ghost";
+            // 
+            // ghRed
+            // 
+            this.ghRed.Image = global::PacMan.Properties.Resources.red_gh;
+            this.ghRed.Location = new System.Drawing.Point(948, 361);
+            this.ghRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ghRed.Name = "ghRed";
+            this.ghRed.Size = new System.Drawing.Size(40, 40);
+            this.ghRed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ghRed.TabIndex = 142;
+            this.ghRed.TabStop = false;
+            this.ghRed.Tag = "ghost";
+            // 
+            // Hp2
+            // 
+            this.Hp2.Image = global::PacMan.Properties.Resources.health;
+            this.Hp2.Location = new System.Drawing.Point(176, -2);
+            this.Hp2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Hp2.Name = "Hp2";
+            this.Hp2.Size = new System.Drawing.Size(29, 25);
+            this.Hp2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Hp2.TabIndex = 141;
+            this.Hp2.TabStop = false;
+            this.Hp2.Tag = "health";
+            // 
+            // Hp3
+            // 
+            this.Hp3.Image = global::PacMan.Properties.Resources.health;
+            this.Hp3.Location = new System.Drawing.Point(211, -2);
+            this.Hp3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Hp3.Name = "Hp3";
+            this.Hp3.Size = new System.Drawing.Size(29, 25);
+            this.Hp3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Hp3.TabIndex = 140;
+            this.Hp3.TabStop = false;
+            this.Hp3.Tag = "health";
             // 
             // Hp1
             // 
@@ -336,7 +388,7 @@
             this.ghBlue.Location = new System.Drawing.Point(1108, 481);
             this.ghBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ghBlue.Name = "ghBlue";
-            this.ghBlue.Size = new System.Drawing.Size(29, 30);
+            this.ghBlue.Size = new System.Drawing.Size(30, 30);
             this.ghBlue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ghBlue.TabIndex = 138;
             this.ghBlue.TabStop = false;
@@ -1111,7 +1163,7 @@
             // pictureBox64
             // 
             this.pictureBox64.Image = global::PacMan.Properties.Resources.coin;
-            this.pictureBox64.Location = new System.Drawing.Point(1811, 507);
+            this.pictureBox64.Location = new System.Drawing.Point(1811, 523);
             this.pictureBox64.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox64.Name = "pictureBox64";
             this.pictureBox64.Size = new System.Drawing.Size(16, 15);
@@ -1123,7 +1175,7 @@
             // pictureBox65
             // 
             this.pictureBox65.Image = global::PacMan.Properties.Resources.coin;
-            this.pictureBox65.Location = new System.Drawing.Point(1707, 507);
+            this.pictureBox65.Location = new System.Drawing.Point(1707, 523);
             this.pictureBox65.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox65.Name = "pictureBox65";
             this.pictureBox65.Size = new System.Drawing.Size(16, 15);
@@ -1634,7 +1686,7 @@
             this.pictureBox13.Location = new System.Drawing.Point(563, 550);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(961, 101);
+            this.pictureBox13.Size = new System.Drawing.Size(920, 101);
             this.pictureBox13.TabIndex = 24;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Tag = "wall";
@@ -1645,7 +1697,7 @@
             this.pictureBox19.Location = new System.Drawing.Point(1532, 379);
             this.pictureBox19.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(283, 112);
+            this.pictureBox19.Size = new System.Drawing.Size(283, 132);
             this.pictureBox19.TabIndex = 23;
             this.pictureBox19.TabStop = false;
             this.pictureBox19.Tag = "wall";
@@ -1840,7 +1892,7 @@
             // pacman
             // 
             this.pacman.Image = global::PacMan.Properties.Resources.pac_right1;
-            this.pacman.Location = new System.Drawing.Point(1011, 490);
+            this.pacman.Location = new System.Drawing.Point(1013, 422);
             this.pacman.Margin = new System.Windows.Forms.Padding(4);
             this.pacman.Name = "pacman";
             this.pacman.Size = new System.Drawing.Size(29, 30);
@@ -1848,36 +1900,14 @@
             this.pacman.TabIndex = 2;
             this.pacman.TabStop = false;
             // 
-            // Hp3
-            // 
-            this.Hp3.Image = global::PacMan.Properties.Resources.health;
-            this.Hp3.Location = new System.Drawing.Point(211, -2);
-            this.Hp3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Hp3.Name = "Hp3";
-            this.Hp3.Size = new System.Drawing.Size(29, 25);
-            this.Hp3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Hp3.TabIndex = 140;
-            this.Hp3.TabStop = false;
-            this.Hp3.Tag = "health";
-            // 
-            // Hp2
-            // 
-            this.Hp2.Image = global::PacMan.Properties.Resources.health;
-            this.Hp2.Location = new System.Drawing.Point(176, -2);
-            this.Hp2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Hp2.Name = "Hp2";
-            this.Hp2.Size = new System.Drawing.Size(29, 25);
-            this.Hp2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Hp2.TabIndex = 141;
-            this.Hp2.TabStop = false;
-            this.Hp2.Tag = "health";
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1924, 752);
+            this.Controls.Add(this.ghPink);
+            this.Controls.Add(this.ghRed);
             this.Controls.Add(this.Hp2);
             this.Controls.Add(this.Hp3);
             this.Controls.Add(this.Hp1);
@@ -2018,6 +2048,10 @@
             this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Key_Up);
+            ((System.ComponentModel.ISupportInitialize)(this.ghPink)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ghRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hp2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hp3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Hp1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ghBlue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox127)).EndInit();
@@ -2149,8 +2183,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hp3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hp2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2292,6 +2324,8 @@
         private System.Windows.Forms.PictureBox Hp1;
         private System.Windows.Forms.PictureBox Hp3;
         private System.Windows.Forms.PictureBox Hp2;
+        private System.Windows.Forms.PictureBox ghRed;
+        private System.Windows.Forms.PictureBox ghPink;
     }
 }
 

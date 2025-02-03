@@ -152,5 +152,14 @@
   <ItemGroup>
     <None Include="Resources\health.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PacMan\red-gh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PacMan\pink-gh-left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PacMan\pink-gh-right.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
