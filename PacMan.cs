@@ -293,7 +293,7 @@ namespace PacMan
                 }
             }
 
-            if (score == 2)
+            if (score == 87)
             {
                 GameTimer.Stop();
                 MessageBox.Show("Congrats you won!!");                
