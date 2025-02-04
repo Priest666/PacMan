@@ -284,6 +284,7 @@ namespace PacMan
                             if (health == 0)
                             {
                                 Hp3.Visible = false;
+                                GameTimer.Stop();
                                 MessageBox.Show($"You died your score was {score}");
                                 RestartGame();
                             }
@@ -292,15 +293,16 @@ namespace PacMan
                 }
             }
 
-            if (score == 87)
+            if (score == 2)
             {
-                MessageBox.Show("Congrats you won!!");
+                GameTimer.Stop();
+                MessageBox.Show("Congrats you won!!");                
                 RestartGame();
             }
         }
 
         private void RestartGame()
-        {
+        {           
             LbScore.Text = "Score: 0";
             score = 0;
             health = 3;
@@ -311,7 +313,7 @@ namespace PacMan
             {
                 if (c is PictureBox)
                 {
-                    if ((string)c.Tag == "coin" || (string)c.Tag == "health")
+                    if ((string)c.Tag == "coin" && (string)c.Tag == "health")
                     {
                         c.Visible = true;
                     }                   
@@ -319,6 +321,7 @@ namespace PacMan
 
 
             }
+            GameTimer.Start();
         }
     }
 }
