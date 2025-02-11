@@ -313,10 +313,15 @@ namespace PacMan
             {
                 if (c is PictureBox)
                 {
-                    if ((string)c.Tag == "coin" && (string)c.Tag == "health")
+                    if ((string)c.Tag == "coin")
                     {
                         c.Visible = true;
-                    }                   
+                    }
+
+                    if ((string)c.Tag == "health")
+                    {
+                        c.Visible = true;
+                    }
                 }
 
 
